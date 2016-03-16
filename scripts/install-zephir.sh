@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Check If Zephir Has Been Installed
+
+if [ -f /home/vagrant/.zephir ]
+then
+    echo "Zephir already installed."
+    exit 0
+fi
+
+touch /home/vagrant/.zephir
 #
 # install upstream json-c
 #
@@ -10,7 +19,7 @@ sh autogen.sh
 
 ./configure
 make
-sudo make install
+make install
 rm -fr /tmp/json-c
 
 #
@@ -21,8 +30,5 @@ git clone https://github.com/phalcon/zephir.git
 cd zephir
 ./install
 
-sudo chown -R vagrant:vagrant /home/vagrant/zephir
+chown -R vagrant:vagrant /home/vagrant/zephir
 
-
-# enable php-cli support dlopen for develop env
-sudo cp -f /vagrant/files/etc/php5/cli/php.ini /etc/php5/cli/

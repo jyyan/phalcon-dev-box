@@ -1,20 +1,24 @@
 #!/bin/sh
 
-#
-# install upstream phalcon
-#
-cd /home/vagrant
-git clone https://github.com/phalcon/cphalcon.git
-cd cphalcon/build/
-sudo ./install
+# Check If phalcon Has Been Installed
 
-sudo cp -f /vagrant/files/etc/php5/conf.d/phalcon.ini /etc/php5/conf.d/
+if [ -f /home/vagrant/.phalcon ]
+then
+    echo "Phalcon already installed."
+    exit 0
+fi
 
-sudo chown -R vagrant:vagrant /home/vagrant/cphalcon
+touch /home/vagrant/.phalcon
+#
+# install upstream phalcon from ppa
+#
+apt-add-repository -y ppa:phalcon/stable
+apt-get update
+apt-get -f -y install
+apt-get install -y php5-phalcon
 
 # restart php5-fpm
 /etc/init.d/php5-fpm restart
-
 
 #
 # phalcon developer tools
@@ -26,5 +30,5 @@ echo '{ "require": { "phalcon/devtools": "dev-master" } }' > composer.json
 
 ln -s /home/vagrant/phalcon-devtools/vendor/phalcon/devtools/phalcon.php /home/vagrant/bin/phalcon
 
-sudo chown -R vagrant:vagrant /home/vagrant/phalcon-devtools
-sudo chown -R vagrant:vagrant /home/vagrant/bin
+chown -R vagrant:vagrant /home/vagrant/phalcon-devtools
+chown -R vagrant:vagrant /home/vagrant/bin

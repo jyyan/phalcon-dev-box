@@ -52,4 +52,3 @@ alias v='vim'
 alias ..='cd ..'
 
 export PATH="/home/vagrant/bin:/home/vagrant/zephir/bin:$PATH"
-

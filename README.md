@@ -1,12 +1,15 @@
-Precise32 Virtual Machine for PhalconPHP Development
+Trusty64 Virtual Machine for PhalconPHP Development
 ==============================================================
 
 The setup includes:
 -------------------
-* box:       precise32 (http://files.vagrantup.com/precise32.box)
-* PHP:       PHP 5.3
-* WebServer: Nginx Light 1.4.1
-* Phalcon: 1.2.3
+* box:       trusty64 (ubuntu 14.10)
+* PHP:       PHP 5.5.9
+* WebServer: Nginx Light 1.4.6
+* Phalcon: 2.0.10-ppa1~trusty
+* Phalcon Dev Tools: 2.0.10 +
+* Zephir : 0.9.2a-dev
+* MySQL  : 10.1.12+maria-1~trusty
 
 Next steps:
 -----------
@@ -14,9 +17,9 @@ If you have not installed Vagrant yet, go to http://downloads.vagrantup.com/
 
 Clone this project:
 
-    $ git clone git@github.com:racklin/phalcon-dev-box.git
+    $ git clone https://github.com/jyyan/phalcon-dev-box
     $ cd phalcon-dev-box
-    
+
 Boot up:
 
     $ vagrant up
@@ -33,7 +36,7 @@ You can't open `http://localhost:8080/` in your Host OS browser.
 PreInstalled Command-Line Tools:
 -----------
 * composer
-* phalcon-dev-tools
+* phalcon
 * zephir
 
 
