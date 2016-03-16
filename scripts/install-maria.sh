@@ -2,17 +2,6 @@
 # The MIT License (MIT)
 # Copyright (c) <Taylor Otwell>
 
-#
-# phalcon developer tools
-#
-mkdir /home/vagrant/phalcon-devtools
-cd /home/vagrant/phalcon-devtools
-echo '{ "require": { "phalcon/devtools": "dev-master" } }' > composer.json
-/home/vagrant/bin/composer install
-
-ln -s /home/vagrant/phalcon-devtools/vendor/phalcon/devtools/phalcon.php /home/vagrant/bin/phalcon
-
-sudo chown -R vagrant:vagrant /home/vagrant/phalcon-devtools
 # Check If Maria Has Been Installed
 
 if [ -f /home/vagrant/.maria ]
