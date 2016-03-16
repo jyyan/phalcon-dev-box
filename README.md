@@ -3,7 +3,7 @@ Trusty64 Virtual Machine for PhalconPHP Development
 
 The setup includes:
 -------------------
-* box:       trusty64 (ubuntu 14.10)
+* box:       trusty64 (ubuntu 14.04)
 * PHP:       PHP 5.5.9
 * WebServer: Nginx Light 1.4.6
 * Phalcon: 2.0.10-ppa1~trusty
