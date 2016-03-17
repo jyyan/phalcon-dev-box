@@ -32,7 +32,7 @@ cp -f /vagrant/files/etc/php5/fpm/php.ini /etc/php5/fpm/
 
 # fix nginx php-fpm 502 bad gateway
 sed -i 's/listen\ =\ \/var\/run\/php5-fpm.sock/listen\ =\ 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
-services php5-fpm restart
+service php5-fpm restart
 
 # php build-dep
 apt-get -y build-dep php5
