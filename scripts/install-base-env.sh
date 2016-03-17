@@ -24,12 +24,15 @@ cp -f /vagrant/files/etc/nginx/sites-available/default /etc/nginx/sites-availabl
 /etc/init.d/nginx restart
 
 
-
 # php
-apt-get -y install php-apc php-pear php5-cgi php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-mcrypt php5-sqlite php5-pgsql
+apt-get -y install php-apc php-pear php5-cgi php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-mcrypt php5-sqlite php5-pgsql php5-mysql
 
 # install fpm's php.ini
 cp -f /vagrant/files/etc/php5/fpm/php.ini /etc/php5/fpm/
+
+# fix nginx php-fpm 502 bad gateway
+sed -i 's/listen\ =\ \/var\/run\/php5-fpm.sock/listen\ =\ 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
+services php5-fpm restart
 
 # php build-dep
 apt-get -y build-dep php5
